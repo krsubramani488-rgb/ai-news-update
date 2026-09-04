@@ -1,0 +1,31 @@
+name: Daily AI News Digest
+
+on:
+  schedule:
+    - cron: "30 0 * * *"   # 12:30 AM UTC = 6:00 AM IST
+  workflow_dispatch:         # Also allows manual trigger from GitHub
+
+jobs:
+  send-digest:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run digest bot
+        env:
+          
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}   # ← changed
+          GMAIL_USER:     ${{ secrets.GMAIL_USER }}
+          GMAIL_APP_PASS: ${{ secrets.GMAIL_APP_PASS }}
+          RECIPIENT_EMAIL: ${{ secrets.RECIPIENT_EMAIL }}
+        run: python main.py
