@@ -18,7 +18,7 @@ def send_email(pdf_path: str):
     msg["To"]      = RECIPIENT
     msg["Subject"] = subject
 
-    body = MIMEText(f"""Good morning! 🌅
+    body = MIMEText(f"""Good morning Mani 🌅
 
 Your daily AI digest is ready. Today's top 10 stories from around the world are attached as a PDF.
 
