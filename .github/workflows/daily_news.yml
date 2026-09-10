@@ -24,7 +24,7 @@ jobs:
       - name: Run digest bot
         env:
           
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}   # ← changed
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }} 
           GMAIL_USER:     ${{ secrets.GMAIL_USER }}
           GMAIL_APP_PASS: ${{ secrets.GMAIL_APP_PASS }}
           RECIPIENT_EMAIL: ${{ secrets.RECIPIENT_EMAIL }}
