@@ -8,7 +8,7 @@ def run():
     all_articles = fetch_all_news(max_per_source=10)
     print(f"   → {len(all_articles)} articles collected")
 
-    print("🧠 Analyzing with Claude AI...")
+    print("🧠 Analyzing with AI...")
     top10 = analyze_and_pick_top10(all_articles)
     print(f"   → {len(top10)} top stories selected")
 
